@@ -88,8 +88,8 @@ canvas {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   border: 3px solid black;
   transform: translate(-50%, -50%);
 }

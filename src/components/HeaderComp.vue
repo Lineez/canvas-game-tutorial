@@ -1,16 +1,29 @@
 <template>
   <header>
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <nav class="nav">
+      <router-link v-for="route in routes" :key="route.name" :to="route.path">
+        {{ route.name }}
+      </router-link>
     </nav>
   </header>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { routes } from "@/router/index";
 
-export default defineComponent({});
+export default defineComponent({
+  data() {
+    return {
+      routes,
+    };
+  },
+});
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.nav {
+  display: flex;
+  column-gap: 10px;
+}
+</style>
