@@ -11,6 +11,21 @@ export const routes: Array<RouteRecordRaw> = [
     name: "ParallaxBackground",
     component: () => import("@/pages/ParallaxBackground.vue"),
   },
+  {
+    path: "/enemyMovement",
+    name: "EnemyMovement",
+    component: () => import("@/pages/EnemyMovement.vue"),
+  },
+  {
+    path: "/animateWithSound",
+    name: "AnimateWithSound",
+    component: () => import("@/pages/AnimateWithSound.vue"),
+  },
+  {
+    path: "/clickerGame",
+    name: "ClickerGame",
+    component: () => import("@/pages/ClickerGame.vue"),
+  },
 ];
 
 const router = createRouter({
