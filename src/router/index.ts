@@ -26,6 +26,11 @@ export const routes: Array<RouteRecordRaw> = [
     name: "ClickerGame",
     component: () => import("@/pages/ClickerGame.vue"),
   },
+  {
+    path: "/moreEnemy",
+    name: "MoreEnemy",
+    component: () => import("@/pages/MoreEnemy.vue"),
+  },
 ];
 
 const router = createRouter({
