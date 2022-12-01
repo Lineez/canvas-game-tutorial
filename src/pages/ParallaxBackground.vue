@@ -17,6 +17,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+let raf: number;
 let gameSpeed = 5;
 
 export default defineComponent({
@@ -118,10 +119,13 @@ export default defineComponent({
       });
 
       // gameFrame--;
-      requestAnimationFrame(animate);
+      raf = requestAnimationFrame(animate);
     }
 
     animate();
+  },
+  unmounted() {
+    cancelAnimationFrame(raf);
   },
 });
 </script>

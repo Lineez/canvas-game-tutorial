@@ -19,6 +19,7 @@ import { mapSprites } from "@/utils/utils";
 import { animationStates } from "@/utils/library";
 
 let playerState = "idle";
+let raf: number;
 
 export default defineComponent({
   methods: {
@@ -75,10 +76,13 @@ export default defineComponent({
       );
 
       gameFrame++;
-      requestAnimationFrame(animate);
+      raf = requestAnimationFrame(animate);
     }
 
     animate();
+  },
+  unmounted() {
+    cancelAnimationFrame(raf);
   },
 });
 </script>

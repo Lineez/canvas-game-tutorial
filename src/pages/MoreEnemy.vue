@@ -7,6 +7,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+let raf: number;
 let canvas: HTMLCanvasElement;
 let ctx: CanvasRenderingContext2D;
 let game: Game;
@@ -182,7 +183,7 @@ function animate(timestamp = 0) {
 
   game.update(deltaTime);
   game.draw();
-  requestAnimationFrame(animate);
+  raf = requestAnimationFrame(animate);
 }
 
 export default defineComponent({
@@ -195,6 +196,9 @@ export default defineComponent({
     game = new Game(ctx, canvas.width, canvas.height);
 
     animate();
+  },
+  unmounted() {
+    cancelAnimationFrame(raf);
   },
 });
 </script>

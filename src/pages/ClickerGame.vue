@@ -9,6 +9,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 
+let raf: number;
 let canvas: HTMLCanvasElement;
 let ctx: CanvasRenderingContext2D;
 let collisionCanvas: HTMLCanvasElement;
@@ -207,7 +208,7 @@ function animate(timestamp: number) {
   particles = particles.filter((object) => !object.markedForDelete);
 
   if (!gameOver.value) {
-    requestAnimationFrame(animate);
+    raf = requestAnimationFrame(animate);
   } else {
     drawGameOver();
   }
@@ -268,6 +269,9 @@ export default defineComponent({
     this.collisionCtx = collisionCtx;
 
     animate(0);
+  },
+  unmounted() {
+    cancelAnimationFrame(raf);
   },
 });
 </script>

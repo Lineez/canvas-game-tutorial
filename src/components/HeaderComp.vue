@@ -22,6 +22,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+header {
+  overflow: hidden;
+}
 .nav {
   display: flex;
   column-gap: 10px;

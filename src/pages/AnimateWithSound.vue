@@ -8,6 +8,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+let raf: number;
 const explosions: Explosion[] = [];
 class Explosion {
   spriteWidth = 200;
@@ -89,10 +90,13 @@ export default defineComponent({
         }
       });
 
-      requestAnimationFrame(animate);
+      raf = requestAnimationFrame(animate);
     }
 
     animate();
+  },
+  unmounted() {
+    cancelAnimationFrame(raf);
   },
 });
 </script>

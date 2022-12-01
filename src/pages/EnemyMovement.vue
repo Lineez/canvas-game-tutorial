@@ -7,6 +7,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+let raf: number;
+
 export default defineComponent({
   mounted() {
     const canvas = document.getElementById("canvas1") as HTMLCanvasElement;
@@ -80,7 +82,7 @@ export default defineComponent({
       });
 
       gameFrame++;
-      requestAnimationFrame(animate);
+      raf = requestAnimationFrame(animate);
     }
 
     animate();
@@ -92,6 +94,9 @@ export default defineComponent({
       }
       return enemies;
     }
+  },
+  unmounted() {
+    cancelAnimationFrame(raf);
   },
 });
 </script>
