@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="container">click to see boom effect with sound</div>
+    <div class="container">
+      click to see boom effect with sound<br />Осторожно минус уши
+    </div>
     <canvas @click="showExplosion" id="canvas1"></canvas>
   </div>
 </template>
